@@ -79,7 +79,7 @@ def get_arguments():
                         help="Whether to freeze BN layers, False for Freezing")
     parser.add_argument("--img-dir", type=str, default=IMGSHOT_DIR,
                         help="Where to save images of the model.")
-    parser.add_argument("--num-workers", default=16)
+    parser.add_argument("--num-workers", type=int, default=2)
     parser.add_argument("--final-step", type=int, default=int(NUM_STEPS_PER_EPOCH * MAX_EPOCH),
                         help="Number of training steps.")
     parser.add_argument("--fine-tune", default=False)
