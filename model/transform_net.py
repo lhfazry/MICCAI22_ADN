@@ -144,7 +144,7 @@ class Encoder3D(nn.Module):
         for n in range(self.n_layer_3d):
             setattr(self, 'model3d' + str(n), nn.Sequential(*network3d[n]))
 
-        self.avgpool = nn.AvgPool3d((2, 16, 16), stride=1)
+        self.avgpool = nn.AdaptiveAvgPool3d((1, 1, 1))
         self.fc = nn.Linear(256, cout)
 
     def forward(self, x):
