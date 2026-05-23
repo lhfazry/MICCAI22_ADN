@@ -92,7 +92,9 @@ def get_arguments():
     parser.add_argument("--batch-size", type=int, default=BATCH_SIZE,
                         help="Number of images sent to the network in one step.")
     parser.add_argument("--data-dir", type=str, default=data_dir,
-                        help="Path to the text file listing the images in the dataset.")
+                        help="Path to the data directory containing CT images.")
+    parser.add_argument("--train-txt", type=str, default=train_txt,
+                        help="Path to the text file listing the patient IDs for training.")
     parser.add_argument("--learning-rate", type=float, default=LEARNING_RATE,
                         help="Base learning rate for training with polynomial decay.")
     parser.add_argument("--num-classes", type=int, default=NUM_CLASSES,
@@ -117,6 +119,8 @@ def get_arguments():
 
 
 args = get_arguments()
+data_dir = args.data_dir
+train_txt = args.train_txt
 print("mirror, jitter, rotate:", args.random_mirror, args.random_jitter, args.random_rotate)
 
 
